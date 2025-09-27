@@ -8,11 +8,11 @@
     "start": "next start",
     "lint": "next lint",
 
-    "export:unit1": "cross-env NEXT_PUBLIC_SUBDIR=unit1 next build --turbopack && next export -o docs/unit1",
-    "export:unit2": "cross-env NEXT_PUBLIC_SUBDIR=unit2 next build --turbopack && next export -o docs/unit2",
-    "export:unit3": "cross-env NEXT_PUBLIC_SUBDIR=unit3 next build --turbopack && next export -o docs/unit3",
+    "export:unit1": "cross-env NEXT_PUBLIC_SUBDIR=unit1 next build --turbopack && node -e \"const fs=require('fs'),p=require('path');const src='out',dest='docs/unit1';if(!fs.existsSync(src)){throw new Error('Missing out/ — ensure output:\\'export\\' in next.config.ts and rerun build');}fs.mkdirSync(dest,{recursive:true});(function cp(s,d){for(const e of fs.readdirSync(s,{withFileTypes:true})){const S=p.join(s,e.name),D=p.join(d,e.name);if(e.isDirectory()){fs.mkdirSync(D,{recursive:true});cp(S,D);}else{fs.copyFileSync(S,D);} }})(src,dest);fs.writeFileSync('docs/.nojekyll','')\"",
 
-    "pages:prepare": "node -e \"require('fs').mkdirSync('docs',{recursive:true});require('fs').writeFileSync('docs/.nojekyll','')\""
+    "export:unit2": "cross-env NEXT_PUBLIC_SUBDIR=unit2 next build --turbopack && node -e \"const fs=require('fs'),p=require('path');const src='out',dest='docs/unit2';if(!fs.existsSync(src)){throw new Error('Missing out/ — ensure output:\\'export\\' in next.config.ts and rerun build');}fs.mkdirSync(dest,{recursive:true});(function cp(s,d){for(const e of fs.readdirSync(s,{withFileTypes:true})){const S=p.join(s,e.name),D=p.join(d,e.name);if(e.isDirectory()){fs.mkdirSync(D,{recursive:true});cp(S,D);}else{fs.copyFileSync(S,D);} }})(src,dest);fs.writeFileSync('docs/.nojekyll','')\"",
+
+    "export:unit3": "cross-env NEXT_PUBLIC_SUBDIR=unit3 next build --turbopack && node -e \"const fs=require('fs'),p=require('path');const src='out',dest='docs/unit3';if(!fs.existsSync(src)){throw new Error('Missing out/ — ensure output:\\'export\\' in next.config.ts and rerun build');}fs.mkdirSync(dest,{recursive:true});(function cp(s,d){for(const e of fs.readdirSync(s,{withFileTypes:true})){const S=p.join(s,e.name),D=p.join(d,e.name);if(e.isDirectory()){fs.mkdirSync(D,{recursive:true});cp(S,D);}else{fs.copyFileSync(S,D);} }})(src,dest);fs.writeFileSync('docs/.nojekyll','')\""
   },
   "dependencies": {
     "@radix-ui/react-slot": "^1.2.3",
