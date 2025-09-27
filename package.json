@@ -6,7 +6,13 @@
     "dev": "next dev --turbopack",
     "build": "next build --turbopack",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "next lint",
+
+    "export:unit1": "cross-env NEXT_PUBLIC_SUBDIR=unit1 next build --turbopack && next export -o docs/unit1",
+    "export:unit2": "cross-env NEXT_PUBLIC_SUBDIR=unit2 next build --turbopack && next export -o docs/unit2",
+    "export:unit3": "cross-env NEXT_PUBLIC_SUBDIR=unit3 next build --turbopack && next export -o docs/unit3",
+
+    "pages:prepare": "node -e \"require('fs').mkdirSync('docs',{recursive:true});require('fs').writeFileSync('docs/.nojekyll','')\""
   },
   "dependencies": {
     "@radix-ui/react-slot": "^1.2.3",
@@ -27,6 +33,7 @@
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "cross-env": "^10.0.0",
     "eslint": "^9",
     "eslint-config-next": "15.5.4",
     "tailwindcss": "^4",

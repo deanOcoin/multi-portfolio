@@ -20,10 +20,9 @@ import katex from "katex";
 
 // ---------- math helpers ----------
 function simpson(f: (x: number) => number, a: number, b: number, n = 20000) {
-  // Composite Simpson's Rule
   if (n % 2 === 1) n++;
   const h = (b - a) / n;
-  let s = f(a) + f(b);
+  const s = f(a) + f(b);  // <-- const
   let s4 = 0;
   let s2 = 0;
   for (let i = 1; i < n; i++) {
@@ -33,6 +32,7 @@ function simpson(f: (x: number) => number, a: number, b: number, n = 20000) {
   }
   return (h / 3) * (s + 2 * s2 + 4 * s4);
 }
+
 
 function fmt(x: number, k = 4) {
   return Number.parseFloat(x.toFixed(k)).toString();
@@ -379,9 +379,9 @@ A &= \tfrac12 \int_{0}^{\pi/2} r^2\,d\theta
       <CardHeader><CardTitle className="text-base">Metacognitive notes (extra)</CardTitle></CardHeader>
       <CardContent className="space-y-3">
         <p>
-          Write bounds <em>before</em> the integral and annotate them (“right loop"): 
-          {" "}<MathInline math={"0\\le\\theta\\le\\pi/2"} /> since <MathInline math={"\\sin(2\\theta)\\ge 0"} /> in QI”).
-        </p>
+  Write bounds <em>before</em> the integral and annotate them (“right loop”):{" "}
+  <MathInline math={"0\\le\\theta\\le\\pi/2"} /> since <MathInline math={"\\sin(2\\theta)\\ge 0"} /> in QI”).
+</p>
         <p>For numeric checks: try a smaller step once and confirm the result barely changes.</p>
       </CardContent>
     </Card>
