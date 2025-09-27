@@ -9,16 +9,6 @@ import { Badge } from "@/components/ui/badge";
 import "katex/dist/katex.min.css";
 import katex from "katex";
 
-/**
- * Multivariable Calculus – Unit 1 Portfolio (Parametrics & Polar)
- * Front‑end heavy, interactive, rubric‑aligned.
- * - Content & Understanding: conceptual overview + 3 solved exemplars with steps, visuals, and checks
- * - Reflection & Metacognition: five thoughtful prompts completed
- * - Goal Setting: SMART goal for next unit
- * Tailwind + shadcn/ui + KaTeX. No external data.
- */
-
-// ---------- math helpers ----------
 function simpson(f: (x: number) => number, a: number, b: number, n = 20000) {
   if (n % 2 === 1) n++;
   const h = (b - a) / n;
@@ -38,7 +28,6 @@ function fmt(x: number, k = 4) {
   return Number.parseFloat(x.toFixed(k)).toString();
 }
 
-// ---------- math rendering components (replace react-katex) ----------
 
 type MathProps = { math: string };
 
@@ -50,7 +39,6 @@ const MathBlock = ({ math }: MathProps) => (
   <div className="my-2" dangerouslySetInnerHTML={{ __html: katex.renderToString(math, { displayMode: true, throwOnError: false }) }} />
 );
 
-// ---------- small UI utilities ----------
 const Section = ({ title, children, icon }: { title: string; children: React.ReactNode; icon?: React.ReactNode }) => (
   <div className="mb-10">
     <div className="flex items-center gap-3 mb-3">
@@ -130,15 +118,12 @@ function ParametricPlot({ f, t0, t1, samples = 600 }: { f: (t: number) => [numbe
 }
 
 export default function Unit1Portfolio() {
-  // ---- Ellipse data ----
   const a = 6 / 5; // major radius on x
   const b = 1; // minor radius on y
   const c = Math.sqrt(11) / 5; // focal distance
 
-  // ---- Polar area (one loop of r^2 = sin(2θ)) ----
   const polarAreaExact = 0.5;
 
-  // ---- Parametric arc length ----
   const arcLen = useMemo(() => {
     const f = (t: number) => Math.sqrt(26 - 10 * Math.cos(t));
     return simpson(f, 0, 4 * Math.PI, 40000);
