@@ -173,7 +173,7 @@ export default function Unit1Portfolio() {
 
             <Section title="Examples from WebAssign (Solved)" icon={<CheckCircle className="w-6 h-6 text-emerald-600" />}>
               {/* Problem 1 */}
-              <ProblemCard title="Ellipse: vertices, foci, and sketch" tags={["Conic via level set", "Parametric ↔ Cartesian"]}>
+              <ProblemCard title="Ellipse: vertices, foci, and sketch">
   <p className="leading-relaxed">
     Given <MathInline math={"25x^2 + 36y^2 = 36"} />, write the ellipse in standard form and find the vertices and foci.
   </p>
@@ -201,7 +201,7 @@ export default function Unit1Portfolio() {
 
 
               {/* Problem 2 */}
-              <ProblemCard title="Polar area: r^2 = sin(2θ) (one loop)" tags={["Polar area", "Lemniscate"]}>
+              <ProblemCard title="Polar area: r^2 = sin(2θ) (one loop)">
   <p>
     The shaded right-hand loop corresponds to <MathInline math={"0 \\le \\theta \\le \\tfrac{\\pi}{2}"} /> with{" "}
     <MathInline math={"r^2 = \\sin(2\\theta) \\ge 0"} />.
@@ -234,7 +234,7 @@ A &= \tfrac12 \int_{0}^{\pi/2} r^2\,d\theta
 
 
               {/* Problem 3 */}
-              <ProblemCard title="Arc length of a parametric curve" tags={["Speed", "Arc length integral"]}>
+              <ProblemCard title="Arc length of a parametric curve">
   <p>
     For <MathInline math={"x(t) = t - 5\\sin t,\\ y(t) = 1 - 5\\cos t,\\ 0 \\le t \\le 4\\pi"} />, set up and evaluate the length.
   </p>
