@@ -151,20 +151,16 @@ export default function Unit1Portfolio() {
   <Card>
     <CardContent className="pt-6 space-y-3 leading-relaxed">
       <p>
-  This unit shows curves as motion and as a choice of coordinates. With
-  <span className="font-medium"> parametric equations</span>{" "}
-  <MathInline math={"(x(t),\\,y(t))"} /> the parameter <MathInline math={"t"} /> acts like a
-  clock that gives direction and <span className="font-medium">speed</span>{", "}
-  <MathInline math={"v(t)=\\sqrt{(x'(t))^2+(y'(t))^2}"} />, turning
-  <span className="font-medium"> arc length</span> into{" "}
-  <MathInline math={"L=\\int_a^b v(t)\\,dt"} />. With
-  <span className="font-medium"> polar equations</span>{" "}
-  <MathInline math={"r=f(\\theta)"} />, symmetry is what influences bounds and area using{" "}
-  <MathInline math={"A=\\tfrac12\\int r(\\theta)^2\\,d\\theta"} />. Across the examples
-  (ellipse, lemniscate loop, cycloid), I practiced switching representations and choosing the
-  one that makes the measurement simple, parametric for motion, polar for symmetry, and
-  Cartesian when algebra is cleanest.
+  During this unit, I came to understand that a curve is something I can write in more than one way, and to switch between different forms so that I can solve problems more efficiently. With parametric equations <MathInline math={"x(t)"} /> and <MathInline math={"y(t)"} />, I focus on how the coordinates change together but as their own individual relationship with a new variable.
+  <br /><br />
+  From <MathInline math={"x'(t)"} /> and <MathInline math={"y'(t)"} />, I can read the instantaneous speed <MathInline math={"v(t)=\\sqrt{(x'(t))^2+(y'(t))^2}"} />, which turns arc length into the equation: <MathInline math={"L=\\int v(t)\\,dt"} />, when thinking about it in a velocity and distance scenario. That equation was much more intuitive for me because it is calculating the area under the velocity vs time curve so the area represents some speed represented as distance/time, multiplied by the parametric variable, time, simplifying to just distance (d/t * t = d). That view makes the question of how far the path travelled much more intuitive and helped me explain where motion sped up or slowed down. I mention this same concept in my reflection.
+  <br /><br />
+  Polar equations <MathInline math={"r=f(\\theta)"} /> gave me the advantage of putting the angle in the front, so the symmetry shows up immediately, helping me choose bounds and not retracing the same part more than once by mistake. Area also fits nicely in this setting with <MathInline math={"A=\\tfrac{1}{2}\\int r(\\theta)^2\\,d\\theta"} />, so regions that would be awkward as an x-y relationship can be measured without converting back.
 </p>
+
+
+
+
 
     </CardContent>
   </Card>
@@ -269,34 +265,54 @@ A &= \tfrac12 \int_{0}^{\pi/2} r^2\,d\theta
 
             </Section>
 
-            <Section title="Importance & Applications" icon={<Target className="w-6 h-6 text-purple-600" />}>
-              <Card>
-                <CardContent className="pt-6 space-y-3 leading-relaxed">
-                  <ul className="list-disc ml-6 space-y-2">
-                    <li>
-                      <span className="font-medium">Physics/Engineering:</span> Arc length and speed power kinematics of robot arms and satellites; polar integrals compute masses and areas in non‑Cartesian geometry.
-                    </li>
-                    <li>
-                      <span className="font-medium">Computer graphics:</span> Parametric curves (splines) define paths and strokes; arc length enables even texture spacing and motion at constant speed.
-                    </li>
-                  </ul>
-                </CardContent>
-              </Card>
-            </Section>
+            <Section title="Importance & Applications (Paraphrased from Sources)" icon={<Target className="w-6 h-6 text-purple-600" />}>
+  <Card>
+    <CardContent className="pt-6 space-y-3 leading-relaxed">
+      <ul className="list-disc ml-6 space-y-2">
+        <li>
+          <span className="font-medium">Physics and Engineering:</span> Path length and speed show up in robot/vehicle motion planning, where 
+          if you re-parameterize arc-length, it makes following a path smoother and timing much more aware
+          (<a href="https://www.sciencedirect.com/science/article/abs/pii/S0957415821000404" target="_blank" rel="noreferrer" className="text-blue-600 underline">Wen et al., 2021</a>, 
+          <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC7363842/" target="_blank" rel="noreferrer" className="text-blue-600 underline ml-1">Ali et al., 2020</a>).
+        </li>
+        <li>
+          <span className="font-medium">Computer Graphics and Animation:</span> Many systems use approximately arc-length-parameterized splines to move objects at visually constant speed and to space textures evenly 
+          (<a href="https://homepage.divms.uiowa.edu/~kearney/pubs/CurvesAndSurfacesArcLength.pdf" target="_blank" rel="noreferrer" className="text-blue-600 underline">Wang & Kearney, 2003</a>; 
+          <a href="https://developer.download.nvidia.com/video/siggraph/2020/presentations/sig03-polar-stroking-new-theory-and-methods-for-stroking-paths.pdf" target="_blank" rel="noreferrer" className="text-blue-600 underline ml-1">NVIDIA SIGGRAPH, 2020</a>).
+        </li>
+        <li>
+          <span className="font-medium">Navigation and Radar:</span> Polar coordinates (range, angle) are the standard way to describe targets. Air-traffic and weather radar use a polar format before any map reprojection 
+          (<a href="https://www.ebsco.com/research-starters/history/polar-coordinate-systems" target="_blank" rel="noreferrer" className="text-blue-600 underline">Research Starters</a>; 
+          <a href="https://journals.ametsoc.org/view/journals/atot/33/3/jtech-d-15-0135_1.xml" target="_blank" rel="noreferrer" className="text-blue-600 underline ml-1">AMS Journal, 2016</a>).
+        </li>
+      </ul>
+    </CardContent>
+  </Card>
+</Section>
+
 
             <Section title="Making Connections" icon={<NotebookPen className="w-6 h-6 text-amber-600" />}>
-              <Card>
-                <CardContent className="pt-6 space-y-3 leading-relaxed">
-                  <p>
-                    Speed <MathInline math={"\\sqrt{(x')^2 + (y')^2}"} /> connects to the 3‑D magnitude of a velocity vector, preparing for space curves. The polar area
-                    {" "}
-                    <MathInline math={"\\tfrac{1}{2}\\int r^2 d\\theta"} /> directly comes from the single‑variable formula <MathInline math={"\\int y\\,dx"} /> for area, derived with infinitesimal sectors. Conic parameters
-                    {" "}
-                    (<MathInline math={"a, b, c"} /> with <MathInline math={"c^2 = a^2 - b^2"} />) connect algebraic forms to geometry and later to quadratic forms.
-                  </p>
-                </CardContent>
-              </Card>
-            </Section>
+  <Card>
+    <CardContent className="pt-6 space-y-3 leading-relaxed">
+      <ul className="list-disc ml-6 space-y-2">
+        <li>
+          <span className="font-medium">Speed = Pythagorean again:</span>{" "}
+          <MathInline math={"\\sqrt{(x'(t))^2+(y'(t))^2}"} /> is just the distance formula for tiny
+          steps <MathInline math={"(dx,dy)"} />. It’s the same idea as
+          single-variable arc length <MathInline math={"L=\\int\\sqrt{1+(y')^2}\\,dx"} /> when
+          x is the the parameter.
+        </li>
+        <li>
+          <span className="font-medium">Parametric ↔ Cartesian via trig:</span>{" "}
+          From <MathInline math={"x=\\cos t,\\ y=\\sin t"} /> we get
+          {" "}<MathInline math={"x^2+y^2=1"} /> using <MathInline math={"\\sin^2 t+\\cos^2 t=1"} />.
+          Taking away the parameter is basically solving a system plus a trig identity.
+        </li>
+      </ul>
+    </CardContent>
+  </Card>
+</Section>
+
           </TabsContent>
 
           {/* REFLECTION TAB */}
@@ -307,69 +323,66 @@ A &= \tfrac12 \int_{0}^{\pi/2} r^2\,d\theta
         <div>
           <p className="font-medium">1) Aha moment</p>
           <p>
-  This unit was about thinking of a curve as motion, not just a picture. With
-  {" "}<span className="font-medium">parametric equations</span>{" "}
-  <MathInline math={"(x(t),\\,y(t))"} /> I started treating <em>t</em> like a clock, it tells me direction, where the curve speeds up or slows down, and when special moments like cusps or crossings happen. In contrast,
-  {" "}<span className="font-medium">polar equations</span>{" "}
-  <MathInline math={"r=f(\\theta)"} /> make symmetry jump out and force me to be careful about angle bounds so I trace a region exactly once. For motion I used the
-  {" "}<span className="font-medium">speed</span> formula{" "}
-  <MathInline math={"\\sqrt{(x'(t))^2+(y'(t))^2}"} /> and then turned that into
-  {" "}<span className="font-medium"> arc length</span> with{" "}
-  <MathInline math={"L=\\int v(t)\\,dt"} />. Across the ellipse, lemniscate, and cycloid examples, the big lesson was to switch coordinates to match the task, parametric when time and motion matter, polar when symmetry does, and plain Cartesian when the algebra is cleanest. That habit of picking the right viewpoint is what I’ll carry forward into our next topics.
+  My big takeaway this unit was learning to see a curve as motion. With parametric equations <MathInline math={"(x(t),\\ y(t))"} />, I saw how a point moves as <MathInline math={"t"} /> changes, also being able to calculate both slope and speed directly. The slope is <MathInline math={"\\dfrac{dy}{dx}=\\dfrac{y'(t)}{x'(t)}"} /> and the speed is <MathInline math={"v(t)=\\sqrt{(x'(t))^2+(y'(t))^2}"} />. That distance along the path turns into the arc-length integral <MathInline math={"L=\\int v(t)\\,dt"} />, which feels natural for me because it is “area under the speed vs. time graph,” so thinking about that with dimensional analysis, the area would be meters per second multiplied by seconds so it is clear that the result unit is meters, or the arc-length. For me, with polar equations <MathInline math={"r=f(\\theta)"} />, the symmetry appears right away, so I’m more careful about the angle bounds and not retracing by accident if I set a bound incorrectly. Area also fits well as <MathInline math={"A=\\tfrac{1}{2}\\int r(\\theta)^2\\,d\\theta"} />. On the problems we solved, I practiced switching representations/viewpoints. When I needed speed, slope, or length I used a normal parametric, when the region was naturally radial I used polar, and just Cartesian when it seemed like the Algebra would be the shortest. Learning the habit of choosing the coordinate system first and then trying the problem made my work clearer. It also helped me explain where motion might speed up, slow down, or change direction, it is a habit I hope to bring to our later units.
 </p>
+
+
+
 
         </div>
 
         <div>
           <p className="font-medium">2) Something I’m proud of</p>
           <p>
-            For the arc-length problem I simplified the integrand to <MathInline math={"\\sqrt{26-10\\cos t}"} /> and
-            then did a quick numerical check. I refined the step size once to make sure the value didn’t change much, and
-            the final number matched the key to four decimals. It felt good to combine algebra, a sketch, and computation.
-          </p>
+  I’m proud of how I explained and added to my answers as I solved problems, not just whether or not my final answer was correct. For arc length I wrote <MathInline math={"L=\\int v(t)\\,dt"} /> and then said what that value represents and the units. For slope I used <MathInline math={"\\dfrac{dy}{dx}=\\dfrac{y'(t)}{x'(t)}"} /> and noted what a positive or negative value at that spot would tell me. For polar area I used <MathInline math={"A=\\tfrac{1}{2}\\int r(\\theta)^2\\,d\\theta"} /> and drew the direction of <MathInline math={"\\theta"} /> so the region I was measuring was more clear to me. These habits of adding to my solutions made my work easier to read and helped me catch issues like retracing or mixed units before I fully committed to working the problem out, taking time while I was doing them but overall saving me from confusion and wasting time tracking down where I messed up.
+</p>
+
+
+
+
+
+
+
         </div>
 
         <div>
           <p className="font-medium">3) A challenge</p>
           <p>
-            Choosing bounds in polar coordinates took a couple tries. With <MathInline math={"r^2=\\sin(2\\theta)"} /> I
-            first thought <MathInline math={"[-\\pi/4,\\pi/4]"} /> would work, but comparing to the picture and the sign
-            of <MathInline math={"\\sin(2\\theta)"} /> nudged me to <MathInline math={"[0,\\pi/2]"} /> and to enforce
-            {" "}<MathInline math={"r^2 \\ge 0"} /> so I didn’t double-count a lobe. A tiny quadrant sign chart helped.
-          </p>
+  Choosing bounds in polar coordinates took me a couple tries when I was first introduced. With <MathInline math={"r^2=\\sin(2\\theta)"} /> I first thought <MathInline math={"[-\\pi/4,\\,\\pi/4]"} /> would work, but comparing to the picture and the sign of <MathInline math={"\\sin(2\\theta)"} /> brought me to <MathInline math={"[0,\\,\\pi/2]"} /> and to enforce <MathInline math={"r^2>0"} /> so I didn’t recount a lobe. A quadrant sign chart helped.
+</p>
+
         </div>
 
         <div>
           <p className="font-medium">4) Growth this unit</p>
           <p>
-            I got better at switching between coordinate systems and at writing short reasons under my answers (not just
-            final numbers). I also started an error log (bounds, domains, missing absolute values) and a one-page “tool
-            chooser” for when to use parametric vs. polar.
-          </p>
+  I got better at switching between coordinate systems and at writing short reasons under my answers as opposed to just final numbers. In the past, I was much more cocky doing problems and did not appreciate the learning I gained by taking them slowly and dealing with the concepts in my head for longer, this unit I felt things "click" much more frequently than in past topics in other math classes.
+</p>
+
         </div>
 
         <div>
           <p className="font-medium">5) Goal for next unit</p>
           <p>
-            <span className="font-semibold">Goal:</span> On the day a problem set is assigned, I’ll finish
-            <span className="font-semibold"> the first two problems that day</span> and add a quick 2-sentence concept
-            check. I’ll track it in my notebook and ask one clarifying question before the next class.
-            <em> Success:</em> 90% of sets follow this plan.
-          </p>
+  Goal: On the day a new WebAssign is assigned, I will take two problems I find myself to be the least confident with and write a 2-sentence concept check in my notebook. I&apos;ll write a clarifying question underneath to help my thinking. Success: 90% of WebAssign&apos;s follow this plan.
+</p>
+
         </div>
       </CardContent>
     </Card>
 
     <Card className="mt-4">
-      <CardHeader><CardTitle className="text-base">Metacognitive notes (extra)</CardTitle></CardHeader>
-      <CardContent className="space-y-3">
-        <p>
-  Write bounds <em>before</em> the integral and annotate them (“right loop”):{" "}
-  <MathInline math={"0\\le\\theta\\le\\pi/2"} /> since <MathInline math={"\\sin(2\\theta)\\ge 0"} /> in QI”).
-</p>
-        <p>For numeric checks: try a smaller step once and confirm the result barely changes.</p>
-      </CardContent>
-    </Card>
+  <CardHeader>
+    <CardTitle className="text-base">Metacognitive notes (extra)</CardTitle>
+  </CardHeader>
+  <CardContent className="space-y-2">
+    <ul className="list-disc ml-6 space-y-1">
+      <li>Write bounds first and say why. Example: right loop: <MathInline math={"0\\le \\theta\\le \\pi/2"} /> since <MathInline math={"\\sin(2\\theta)\\ge 0"} />.</li>
+      <li>At the top, label the coordinate choice (Parametric / Polar / Cartesian) and the answer’s units if applicable.</li>
+    </ul>
+  </CardContent>
+</Card>
+
   </Section>
 </TabsContent>
 
